@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
 		if(jouer == 1) {
 			while(jouer == 1) {
-				while(solde >= 1) {
+				while(solde >= 1 && jouer == 1) {
 					nombreMystere = (rand() % (MAX - MIN + 1)) + MIN;
 					printf("Sur quel nombre voulez-vous miser ? ( entre 0 et 49 ) \n");
 					int miseNbr = 0;
@@ -86,6 +86,10 @@ int main(int argc, char *argv[])
 						jouer = 0;
 						printf("Voulez-vous réinitialiser le jeu ? Oui = 1, Quitter = 0\n");
 						scanf("%d", &replay);
+						if(replay == 1) {
+							solde = 1000;
+						}
+						else {}
 					}	
 					else {			
 						printf("Solde : %d€. Voulez-vous rejouer ? Oui = 1, Non = 0.\n", solde);
